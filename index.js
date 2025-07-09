@@ -8,7 +8,6 @@ const serviceAccount = JSON.parse(
   process.env.FIREBASE_SERVICE_ACCOUNT.replace(/\\n/g, "\n")
 );
 
-
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
@@ -25,10 +24,7 @@ app.post("/send-notification", async (req, res) => {
   }
 
   const message = {
-    notification: {
-      title,
-      body,
-    },
+    notification: { title, body },
     topic: topic || "allUsers",
   };
 
